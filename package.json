@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "private": true,
   "license" : "MIT",
-  "homepage": "jeszcze nie mam",
+  "homepage": "https://github.com/Agnieszka26/join_code",
   "engines": {
     "node": ">=18.0.0",
     "yarn": ">=1.22.0",
