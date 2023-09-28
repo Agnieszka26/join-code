@@ -1,7 +1,16 @@
 {
   "name": "join_code",
+  "author": "AGNIESZKA_MEDREK",
+  "description": "Very first version of authorial app for joining people around the world for learning how to code and cooperate with others.",
   "version": "0.1.0",
   "private": true,
+  "license" : "MIT",
+  "homepage": "jeszcze nie mam",
+  "engines": {
+    "node": ">=18.0.0",
+    "yarn": ">=1.22.0",
+    "npm": "please-use-yarn"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
