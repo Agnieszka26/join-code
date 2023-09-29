@@ -1,11 +1,11 @@
 {
-  "name": "join_code",
+  "name": "join-code",
   "author": "AGNIESZKA_MEDREK",
   "description": "Very first version of authorial app for joining people around the world for learning how to code and cooperate with others.",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
-  "homepage": "https://github.com/Agnieszka26/join_code",
+  "homepage": "https://github.com/Agnieszka26/join-code",
   "engines": {
     "node": ">=18.0.0",
     "yarn": ">=1.22.0",
