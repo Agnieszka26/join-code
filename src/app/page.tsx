@@ -1,8 +1,8 @@
 
-
+'use client'
 export default function Home() {
   return (
-    <div className="text-3xl font-bold underline">
+    <div className="p-80">
       First 
     </div>
 
