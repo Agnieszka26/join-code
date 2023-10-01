@@ -1,15 +1,11 @@
-import { Container, Typography } from '@mui/material'
-import React, { FC } from 'react'
+import { BaseText } from '@/components/atoms';
+import React, { FC } from 'react';
 interface PageProps {}
 
-const page:FC<PageProps> = () => {
+const page: FC<PageProps> = () => {
   return (
-    <Container>
-      <Typography variant="h1">
-        Page
-      </Typography>
-    </Container>
-  )
-}
+  <BaseText text="login"/>
+  );
+};
 
-export default page
+export default page;

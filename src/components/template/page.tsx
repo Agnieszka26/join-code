@@ -1,16 +1,10 @@
-'use client'
-import { Container, Typography } from '@mui/material'
-import React, { FC } from 'react'
+'use client';
+
+import React, { FC } from 'react';
 interface PageProps {}
 
-const page:FC<PageProps> = () => {
-  return (
-    <Container>
-      <Typography variant="h1">
-        Page
-      </Typography>
-    </Container>
-  )
-}
+const page: FC<PageProps> = () => {
+  return <div className=""></div>;
+};
 
-export default page
+export default page;

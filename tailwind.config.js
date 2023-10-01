@@ -2,13 +2,17 @@
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
-    colors:{
-      blue: '#00d1cd'
+    fontFamily: {
+      chivo: 'Chivo',
+      sigmar: 'Sigmar One',
     },
-   fontFamily: {
-    chivo: 'Chivo',
-    sigmar: 'Sigmar One',
-  }
+    extend: {
+      colors: {
+        blue: '#00d1cd',
+        lightBlue: '#f4ffff',
+        darkerBlue: '#01b2af',
+      },
+    },
   },
   plugins: [],
 };

@@ -1,10 +1,12 @@
+'use client';
 
-'use client'
+import { BaseText } from "@/components/atoms";
+
+
 export default function Home() {
   return (
     <div className="p-80">
-      First 
+     <BaseText text="landing page"/>
     </div>
-
   );
 }

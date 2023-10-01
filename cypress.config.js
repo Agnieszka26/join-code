@@ -1,7 +1,7 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress';
 
 module.exports = defineConfig({
-  projectId: "xe16wz",
+  projectId: 'xe16wz',
 
   e2e: {
     setupNodeEvents(on, config) {
@@ -11,8 +11,8 @@ module.exports = defineConfig({
 
   component: {
     devServer: {
-      framework: "next",
-      bundler: "webpack",
+      framework: 'next',
+      bundler: 'webpack',
     },
   },
 });

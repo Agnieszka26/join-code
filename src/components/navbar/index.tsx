@@ -1,50 +1,75 @@
 'use client';
+
 import { pages, settings } from '@/helpers/constants';
-import MenuIcon from '@mui/icons-material/Menu';
-import { AppBar, Box, Avatar, Container, Toolbar } from '@mui/material';
-import React, { FC, useState } from 'react';
-import Menu from '../menu';
-import Logo from '../logo';
-import NavbarBtn from '../navbarBtn';
-interface NavbarProps {}
+import Link from 'next/link';
+import { FC, useState } from 'react';
+import { PiUserThin, PiListLight, PiFileCodeLight } from 'react-icons/pi';
+import { BaseText, Button, LinkBtn, Menu, MenuItem, Tooltip } from '../atoms';
 
-const Navbar: FC<NavbarProps> = () => {
-  const [openMenu, setOpenMenu] = useState<null | HTMLElement>(null);
-  const [openUser, setOpenUser] = useState<null | HTMLElement>(null);
-
+const Navbar: FC = () => {
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [openUser, setOpenUser] = useState<boolean>(false);
+  const [user, setUser] = useState<boolean>(true);
   return (
-    <AppBar position="fixed" className="bg-[#444444]">
-      <Container>
-        <Toolbar className="flex justify-between align-middle">
-          <Logo />
-          <Box className="invisible hidden md:visible md:flex w-full justify-center">
-            {pages.map(({text, link})=> <NavbarBtn key={text+link} text={text} link={link} /> )}
-          </Box>
+    <div className="flex w-full justify-center align-middle px-36 py-4 border-b border-b-blue">
+      <div className="container">
+        <nav className="flex w-full md:w-auto justify-between md:align-middle">
+          <Tooltip text={'join code'}>
+            <Button transparent text={<PiFileCodeLight size={40} />} />
+          </Tooltip>
+          <div className="invisible hidden md:visible md:flex md:w-full md:justify-center">
+            {pages.map(({ text, link }) => (
+              <LinkBtn key={text + link} text={text} href={link} />
+            ))}
+          </div>
           <Menu
-            hideResponsive
-            open={Boolean(openMenu)}
-            setOpen={(event: React.MouseEvent<HTMLElement>) =>
-              setOpenMenu(event.currentTarget)
-            }
-            setClose={() => setOpenMenu(null)}
-            menuIcon={<MenuIcon />}
-            items={pages}
-            anchorEl={openMenu}
-          />
-
-          <Menu
-            open={Boolean(openUser)}
-            setOpen={(event: React.MouseEvent<HTMLElement>) =>
-              setOpenUser(event.currentTarget)
-            }
-            setClose={() => setOpenUser(null)}
-            menuIcon={<Avatar color='primary' alt="Remy Sharp" />}
-            items={settings}
-            anchorEl={openUser}
-          />
-        </Toolbar>
-      </Container>
-    </AppBar>
+            hideOnScreens
+            open={openMenu}
+            onOpen={() => setOpenMenu(true)}
+            icon={<PiListLight size={40} className="text-blue " />}
+            id={'#hamburgerMenu'}
+            onClose={() => setOpenMenu(false)}
+          >
+            {pages.map(({ link, text }) => {
+              return (
+                <MenuItem key={link + text}>
+                  <Link href={link}>
+                    <BaseText text={text} />
+                  </Link>
+                </MenuItem>
+              );
+            })}
+          </Menu>
+          {user ? (
+            <Menu
+              open={openUser}
+              onOpen={() => setOpenUser(true)}
+              icon={<PiUserThin size={40} className="text-zinc-500 " />}
+              id={'#userMenu'}
+              onClose={() => setOpenUser(false)}
+            >
+              {settings.map(({ link, text }) => {
+                return (
+                  <MenuItem key={link + text}>
+                    <Link href={link}>
+                      <BaseText text={text} />
+                    </Link>
+                  </MenuItem>
+                );
+              })}
+            </Menu>
+          ) : (
+            <div className={'flex gap-2 justify-between align-middle'}>
+              <Button text={'Zaloguj się'} outlined />
+              <Button
+                text={'Zarejestruj się'}
+                className="text-white  hover:bg-darkerBlue"
+              />
+            </div>
+          )}
+        </nav>
+      </div>
+    </div>
   );
 };
 
